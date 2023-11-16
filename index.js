@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 4000 || process.env.PORT;
+const port = process.env.PORT || 4000;
 const expressHbs = require("express-handlebars");
 
 app.use(express.static(__dirname + "/html"));
@@ -33,4 +33,4 @@ app.get("/admin", (req, res) => {
     res.render("index", { layout: "admin" });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}`));
+app.listen(port, "0.0.0.0", () => console.log(`Example app listening on port ${port}`));
